@@ -1,0 +1,55 @@
+<template name="jobs">
+  {{#if currentUser}}
+  <center>
+      <div>
+          {{#afModal class="btn btn-primary" collection="Jobs" operation="insert"}}
+            Add a new Job
+          {{/afModal}}
+          {{> autoformModals collection="Jobs" id="insertJobForm" type="insert"}}
+      </div>
+  </center>
+  {{/if}}
+              <div class="col-md-10">
+                <div class="big-box">
+                  {{#each jobs}}
+                  <div class="col-md-8">
+                    <div class="box">
+                    <div class="panel-heading">
+                    <h5>Job Title: <strong>{{title}}</strong></h5></div>
+                    <div><h5>Company Description: {{compDesc}}</h5></div>
+                    <div><h5>Job Desciption: {{jobDesc}}</h5></div>
+                    <div>Category: {{category}}<br>
+                    Date added: {{added}}</div>
+
+                    <br>
+                    <!-- <div class="demo-source-head">
+                      <span class="pointer-up"></span> -->
+                      {{#if currentUser}}
+                      {{#if $eq user isOwner._id}}
+                      {{#afModal class="btn btn-primary" collection="Jobs" operation="update" doc=_id}}
+                      Update Job
+                      {{/afModal}}
+
+
+
+                       {{#afModal class="btn btn-danger" collection="Jobs" operation="remove" doc=_id}}
+                      Delete Job
+                      {{/afModal}}
+                      {{/if}}
+                      {{/if}}
+
+                    <a href="{{pathFor 'readMore'}}"> <button type="button" class="btn btn-info">
+                      Read More
+                      </button>
+                    </a>
+
+                  </div>
+                </div>
+
+                  {{/each}}
+                </div>
+              </div>
+</template>
+<template name="readMore">
+  Read More about Jobs
+</template>
