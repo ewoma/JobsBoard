@@ -1,4 +1,5 @@
 Jobs = new Mongo.Collection("jobs");
+// Pages = new Meteor.Pagination("Jobs");
 
 Jobs.attachSchema(new SimpleSchema({
   title: {
@@ -49,6 +50,15 @@ Jobs.attachSchema(new SimpleSchema({
     label: "Date added",
     optional: false
   },
+  picture: {
+    type: String,
+    autoform: {
+      afFieldInput: {
+        type: 'fileUpload',
+        collection: 'Images'
+      }
+    }
+      },
 
   user: {
     type: String,
@@ -57,6 +67,7 @@ Jobs.attachSchema(new SimpleSchema({
     },
     autoValue: function(){
       return Meteor.userId();
-    }
+
   }
+}
 }));

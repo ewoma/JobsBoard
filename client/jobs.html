@@ -7,10 +7,27 @@
           {{/afModal}}
           {{> autoformModals collection="Jobs" id="insertJobForm" type="insert"}}
       </div>
-  </center>
+      <br>
+  <div class="categoryButtons">
+    <a href="{{pathFor 'jobs'}}">| All Jobs</a>
+    <a href="{{pathFor 'jobsCategory' category='HTML' }}">| HTML</a>
+    <a href="{{pathFor 'jobsCategory' category='Account' }}">| Account</a>
+    <a href="{{pathFor 'jobsCategory' category='Business' }}">| Business</a>
+    <a href="{{pathFor 'jobsCategory' category='Management' }}">| Management</a>
+    <a href="{{pathFor 'jobsCategory' category='Cleaner' }}">| Cleaner</a>
+    <a href="{{pathFor 'jobsCategory' category='CSS' }}">| CSS</a>
+    <a href="{{pathFor 'jobsCategory' category='Sales' }}">| Sales</a>
+    <a href="{{pathFor 'jobsCategory' category='Customer Care' }}">| Customer Care</a>
+    <a href="{{pathFor 'jobsCategory' category='Engineering' }}">| Engineering</a>
+    <a href="{{pathFor 'jobsCategory' category='Teaching' }}">| Teaching</a>
+    <a href="{{pathFor 'jobsCategory' category='Nursing' }}">| Nursing |</a>
+
+  </div>
+</center>
   {{/if}}
               <div class="col-md-10">
                 <div class="big-box">
+
                   {{#each jobs}}
                   <div class="col-md-8">
                     <div class="box">
@@ -20,6 +37,9 @@
                     <div><h5>Job Desciption: {{jobDesc}}</h5></div>
                     <div>Category: {{category}}<br>
                     Date added: {{added}}</div>
+                    <div>
+                      Added by: {{user.email}}<img src="{{getImage picture}}" alt="" class="img img-thumbnail">
+                    </div>
 
                     <br>
                     <!-- <div class="demo-source-head">
@@ -27,7 +47,7 @@
                       {{#if currentUser}}
                       {{#if $eq user isOwner._id}}
                       {{#afModal class="btn btn-primary" collection="Jobs" operation="update" doc=_id}}
-                      Update Job
+                        Update Job
                       {{/afModal}}
 
 
@@ -49,7 +69,10 @@
                   {{/each}}
                 </div>
               </div>
+              <!-- {{> Jobs}} -->
 </template>
-<template name="readMore">
-  Read More about Jobs
-</template>
+
+<!-- <template name="Jobs">
+    {{> pages}}
+    {{> pagesNav}}  <!--Bottom navigation-->
+<!-- </template> -->

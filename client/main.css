@@ -37,6 +37,10 @@ position: relative;
   position: relative;
 
 }
+.img-thumbnail{
+  height: 150px;
+
+}
 /*
 .demo-source-head{
   padding:5px 20px;

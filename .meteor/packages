@@ -19,3 +19,7 @@ accounts-twitter
 accounts-google
 yogiben:autoform-modals
 raix:handlebar-helpers
+alethes:pages
+cfs:standard-packages
+cfs:gridfs
+yogiben:autoform-file
